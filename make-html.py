@@ -17,11 +17,40 @@ except OSError:
 ###
 
 fp = open('html/index.html', 'w')
+
+print >>fp, """<html>
+<head>
+<title>My favorite page.</title>
+<style type='text/css'>
+h1 {color:red;}
+body {
+font-size: 14px;
+}
+</style>
+<script>
+function myFunction()
+{
+alert("Hello! I am an alert box!");
+}
+</script>
+</script>
+</head>
+<body>
+"""
+
+print >>fp, "<h1>Hello, world.</h1>"
 print >>fp, "Hello, world.<p><a href='link.html'>this is a relative link</a>"
 
 print >>fp, """
 <p>
 <a href='subdir/table.html'>Here is a link</a> to a file in subdir/:
+<p>
+<input type="button" onclick="myFunction()" value="Show alert box" />
+"""
+
+print >>fp, """
+</body>
+</html>
 """
 
 fp.close()
